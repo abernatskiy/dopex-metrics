@@ -1,6 +1,7 @@
 import { TypeormDatabase } from "@subsquid/typeorm-store";
 import { EvmBatchProcessor } from '@subsquid/evm-processor'
-import * as perc20abi from './abi/perc20'
+//import * as perc20abi from './abi/perc20'
+import * as rdpxabi from './abi/arb-rdpx-token'
 import * as proxyabi from './abi/proxy'
 
 const processor = new EvmBatchProcessor()
@@ -36,7 +37,7 @@ const processor = new EvmBatchProcessor()
 	});
 
 const eventsReverseMapper = new Map<string, string>()
-for(let [k, v] of Object.entries(perc20abi.events)) {
+for(let [k, v] of Object.entries(rdpxabi.events)) {
 	eventsReverseMapper.set(v.topic, k)
 }
 for(let [k, v] of Object.entries(proxyabi.events)) {
@@ -44,7 +45,7 @@ for(let [k, v] of Object.entries(proxyabi.events)) {
 }
 
 const callsReverseMapper = new Map<string, string[]>()
-for(let [k, v] of Object.entries(perc20abi.functions)) {
+for(let [k, v] of Object.entries(rdpxabi.functions)) {
 	if(callsReverseMapper.has(k)) {
 		callsReverseMapper.get(v.sighash)!.push(k)
 	}

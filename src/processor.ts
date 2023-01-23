@@ -1,5 +1,5 @@
 import { EvmBatchProcessor } from '@subsquid/evm-processor'
-import { TypeormDatabase } from '@subsquid/typeorm-store'
+import { FullTypeormDatabase } from '@subsquid/typeorm-store'
 
 import { streamConfigs } from './streams'
 
@@ -34,7 +34,7 @@ function streamsProcessor() {
 
 const processor = streamsProcessor()
 
-processor.run(new TypeormDatabase(), async (ctx) => {
+processor.run(new FullTypeormDatabase(), async (ctx) => {
 	for(let sc of streamConfigs) {
 		await sc.processData(ctx)
 	}

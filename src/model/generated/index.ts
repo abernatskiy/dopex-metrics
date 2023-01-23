@@ -1,1 +1,1 @@
-export * from "./myEntity.model"
+export * from "./rdpxTokenSupplyEvent.model"

@@ -1,5 +1,17 @@
-type MyEntity @entity {
-  id: ID!
-  foo: String!
+# rdpx
+type RdpxTokenSupplyEvent @entity {
+	id: ID!
+	index: Int! @index
+	block: BigInt! @index
+	timestamp: BigInt! @index
+
+	address: String!
+	supplyAmount: BigInt!
+	supplyWhenFinished: BigInt!
+
+	rootTxnHash: String!
+	rootTxnFrom: String!
+	rootTxnTo: String!
+	rootTxnInput: String!
 }
 

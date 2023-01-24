@@ -22,7 +22,7 @@ function streamsProcessor() {
 
 	for(let sc of streamConfigs) {
 		for(let sclog of sc.dataRequest().logs) {
-			proc.addLog(sclog.conract, sclog.options)
+			proc.addLog(sclog.contract, sclog.options)
 		}
 		for(let sctxn of sc.dataRequest().transactions) {
 			proc.addTransaction(sctxn.contract, sctxn.options)

@@ -3,7 +3,7 @@ import { EvmTopicSet, BatchHandlerContext } from '@subsquid/evm-processor'
 export type Context = BatchHandlerContext<any, any>
 
 export interface LogsRequest {
-	contract: string,
+	contract: string | string[],
 	options: {
 		filter?: EvmTopicSet,
 		data: {

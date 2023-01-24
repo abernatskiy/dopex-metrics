@@ -15,3 +15,21 @@ type RdpxTokenSupplyEvent @entity {
 	rootTxnInput: String!
 }
 
+# ssov
+type SsovOptionPurchaseEvent @entity {
+	id: ID!
+	block: BigInt! @index
+	timestamp: BigInt! @index
+
+	baseAsset: String!
+	side: String!
+	periodicity: String!
+
+	epoch: BigInt! @index
+	strike: BigInt! @index
+	amount: BigInt!
+	premium: BigInt!
+	fee: BigInt!
+	to: String!
+	sender: String!
+}

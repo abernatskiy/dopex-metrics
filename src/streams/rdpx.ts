@@ -1,4 +1,3 @@
-import { FullTypeormDatabase } from '@subsquid/typeorm-store'
 import { DataRequest, Context } from './interfaces'
 import { RdpxTokenSupplyEvent } from '../model'
 
@@ -18,7 +17,7 @@ export function dataRequest(): DataRequest {
 
 	return {
 		blocksFrom: 1950162, // the deployment transaction of 0x32eb7902d4134bf98a28b963d26de779af92a212
-		willQueryState: true,
+		willQueryState: false,
 		logs: [ rdpxTransferLogs ],
 		transactions: []
 	}

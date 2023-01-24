@@ -1,13 +1,10 @@
-import { BatchHandlerContext } from '@subsquid/evm-processor'
 import { FullTypeormDatabase } from '@subsquid/typeorm-store'
+import { DataRequest, Context } from './interfaces'
 import { RdpxTokenSupplyEvent } from '../model'
 
 import * as rdpxabi from '../abi/arb-rdpx-token'
 
-// type Context = BatchHandlerContext<FullTypeormDatabase, any>
-type Context = BatchHandlerContext<any, any>
-
-export function dataRequest() {
+export function dataRequest(): DataRequest {
 	let rdpxTransferLogs = {
 		contract: '0x32eb7902d4134bf98a28b963d26de779af92a212',
 		options: {
@@ -27,7 +24,7 @@ export function dataRequest() {
 	}
 }
 
-export async function processData(ctx: Context) {
+export async function processData(ctx: Context): Promise<void> {
 	let res = await ctx.store.query(
 		`select index, supply_when_finished ` +
 		`from rdpx_token_supply_event ` +

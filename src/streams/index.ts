@@ -1,3 +1,5 @@
-import * as rdpx from './rdpx'
+export * from './interfaces'
+import { StreamDefinition } from './interfaces'
 
-export const streamConfigs: any[] = [ rdpx ]
+import * as rdpx from './rdpx'
+export const streamConfigs: StreamDefinition[] = [ rdpx ]
